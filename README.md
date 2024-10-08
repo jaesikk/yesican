@@ -18,17 +18,19 @@
 
    크롬 주소 창에 chrome://version
 
-   ![chrome_driver](C:\Users\Administrator\Desktop\jasic\git\yes24\assets\chrome_driver.png)
+   ![chrome_driver](assets/chrome_driver.png)
+
+   
 
 2. **크롬 드라이버 확보**
 
    보통 아래 경로에 사용하는 chromedriver.exe가 있다.
 
-   ![chrome_driver_path](C:\Users\Administrator\Desktop\jasic\git\yes24\assets\chrome_driver_path.png)
+   ![chrome_driver_path](assets/chrome_driver_path.png)
 
    path로 고생하고 싶지 않으면 동일 디렉토리에 chromedriver.exe를 복사해오자.
 
-   ![chrome_driver](C:\Users\Administrator\Desktop\jasic\git\yes24\assets\chrome_driver.png)
+   ![chrome_driver](assets/chrome_driver.png)
 
 3. **서비스 실행**
    `python main.py`
@@ -37,7 +39,7 @@
 
    아래 기능은 개발했던 것으로 기억하나 확인 필요.
 
-   ![service](C:\Users\Administrator\Desktop\jasic\git\yes24\assets\service.png)
+   ![service](assets/service.png)
 
 
 
