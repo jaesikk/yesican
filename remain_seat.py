@@ -66,6 +66,7 @@ def get_url5(url, data):
         # print(f'get_url5 >>\n{response.text}')
         try:
             result = find_seat(response.text)
+            # print(result)
             if result:
                 tmp = f'{20+i}일-{result}'
                 if tmp not in ans:
