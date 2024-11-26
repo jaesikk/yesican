@@ -30,8 +30,12 @@ def get_seat():
   section_url = '/OSIF/Book.asmx/GetHallMapRemain'
 
   data = [{
-    "idHall": 12487,
-    "idTime": 1326314
+      "idHall": 12487,
+      "idTime": 1325885
+    },
+    {
+      "idHall": 12487,
+      "idTime": 1326314
   }]
   remain_seat.get_url5(n_url(section_url), data)
   pass
