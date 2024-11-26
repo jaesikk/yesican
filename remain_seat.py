@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import noah_sign
 
-
 def n_url(url):
     org= 'http://ticket.yes24.com'
     n_url = org+url
@@ -20,19 +19,6 @@ def beep_sound():
     for _ in range(5):
         winsound.Beep(1500, 600) # Hz, duration
         time.sleep(0.2)
-
-## no_used
-def find_seat(text):
-    soup = BeautifulSoup(text, 'lxml-xml')
-    section_tag = soup.find('Section')
-    ntext = section_tag.text if section_tag else None
-    # print(ntext)
-    seats = ntext.split('^')
-    for seat in seats:
-        if '@' in seat and seat[-1] != '0':
-            print(seat)
-            return seat
-    return None
 
 ## no_used
 # 241002
@@ -50,36 +36,6 @@ def mint(url):
     res = response.content
     result = res.decode('utf-8')
     return result
-
-## no_used
-# idHall	12205
-# idTime	1309168
-def get_url5(url, data):
-    global ans
-    d = {
-        "idHall" : "12205",
-        "idTime" : "1309168"
-    }
-    for i in range(len(data)):
-        # print(f'data >> {i}')
-        response = requests.get(url, data[i])
-        # print(f'get_url5 >>\n{response.text}')
-        try:
-            result = find_seat(response.text)
-            # print(result)
-            if result:
-                tmp = f'{20+i}일-{result}'
-                if tmp not in ans:
-                    print(f'좌석을 찾았습니다.\n{i}번째날({20+i}일) - {result}')
-                    beep_sound()
-                    ans.append(tmp)
-                time.sleep(2)
-
-        except Exception as e:
-            print(f'[FindSeatError] {e}')
-
-
-        time.sleep(random.uniform(0.0,2.0))
 
 # 241125
 def daysix(data):
@@ -109,42 +65,6 @@ def filter_html(html):
 
 
 if __name__ == '__main__':
-    '''
-    data5 = [
-        ## 20일
-        {
-            "idHall": "12205",
-            "idTime": "1309168"
-        },
-        ## 21일
-        {
-            "idHall": "12205",
-            "idTime": "1309432"
-        },
-        ## 22일
-        {
-            "idHall": "12205",
-            "idTime": "1309433"
-        },
-    ]
-    url5 = '/OSIF/Book.asmx/GetHallMapRemain'
-    cnt = 0
-    ans = []
-    while True:
-        get_url5(n_url(url5), data5)
-        time.sleep(10)
-        # time.sleep(random.randint(1, 3))
-        cnt +=1
-        if len(ans) == 10:
-            print('10회 이상 좌석을 찾았습니다.\n프로그램을 종료합니다.')
-            print(ans)
-            time.sleep(5)
-            break
-        else:
-            print(f'{cnt}회 탐색 중')
-    '''
-    # mint_url = '/Pages/Perf/Sale/Ajax/Perf/TimeNoSeatClass.aspx'
-    # result = mint(n_url(url))
 
     headers = noah_sign.get_header()
     noah_sign.wirte_sign()
